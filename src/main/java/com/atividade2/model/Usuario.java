@@ -20,11 +20,11 @@ public class Usuario {
 
     @NotBlank
     @Column(unique = true)
-    private String nome;
+    private String titulo;
 
     @NotBlank
     @Column(nullable = false)
-    private String telefone;
+    private String descricao;
 
     public Usuario() {
 
