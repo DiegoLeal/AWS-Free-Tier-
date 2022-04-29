@@ -1,7 +1,7 @@
 ### Efetue o clone do repositório para seu workspace 
 
 ```bash
-git clone https://github.com/DiegoLeal/aws.git
+git clone https://github.com/DiegoLeal/AWS-Free-Tier-.git
 ```
 
 
