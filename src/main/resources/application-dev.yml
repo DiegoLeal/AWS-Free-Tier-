@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:aws-free-tier-db.czjiom3rtt6e.us-east-1.rds.amazonaws.com}:${POSTGRES_PORT:5432}/${POSTGRES_DB:aws}?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: ${POSTGRES_USERNAME:postgres}
+    password: ${POSTGRES_PASSWORD:postgres}
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect

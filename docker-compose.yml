@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  db-postgres:
+    image: postgres:13.4
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+      POSTGRES_ROOT_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    networks:
+      - aws
+
+  backend:
+    build: .
+    image: awsfreetier
+    environment:
+      POSTGRES_HOST: db-postgres
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+      POSTGRES_USERNAME: ${DB_USERNAME}
+      POSTGRES_PASSWORD:  ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+    ports:
+      - "9000:9000"
+    depends_on:
+      - db-postgres
+    networks:
+      - aws
+    volumes:
+      - postgres-volume:/var/lib/postgres/data
+
+volumes:
+  postgres-volume:
+
+networks:
+  aws:
+    driver: bridge

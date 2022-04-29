@@ -1,0 +1,14 @@
+## Configure server
+server:
+  port: 9000
+  servlet:
+    context-path: /api
+
+# Configure Profile
+spring:
+  profiles:
+    active: ${PROFILE:dev}
+  jpa:
+    open-in-view: false
+
+
